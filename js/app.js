@@ -3,15 +3,17 @@ var ViewModel = function() {
   this.name = ko.observable('Ginger');
   this.imgSrc = ko.observable('img/434164568_fea0ad4013_z.jpg');
   this.imgAttribution = ko.observable('Attribution unknown');
+  this.nicknames = ko.observableArray(['Gigi', 'Cuddles', 'Foofles']);
 
   this.level = ko.computed(function() {
-    if (this.clickCount() > 50) {
+    var count = this.clickCount();
+    if (count > 50) {
       return 'Adult';
     }
-    else if (this.clickCount() > 30 ) {
+    else if (count > 30 ) {
       return 'Teen';
     }
-    else if (this.clickCount() > 10) {
+    else if (count > 10) {
       return 'Infant';
     }
     else {
