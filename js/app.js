@@ -1,4 +1,5 @@
-var ViewModel = function() {
+// Model section
+var Cat = function() {
   this.clickCount = ko.observable(0);
   this.name = ko.observable('Ginger');
   this.imgSrc = ko.observable('img/434164568_fea0ad4013_z.jpg');
@@ -21,8 +22,14 @@ var ViewModel = function() {
     }
   }, this);
 
+};
+
+// ViewModel section
+var ViewModel = function() {
+  this.currentCat = ko.observable(new Cat());
+
   this.incrementCounter = function() {
-    this.clickCount(this.clickCount() + 1);
+    this.currentCat().clickCount(this.currentCat().clickCount() + 1);
   };
 };
 
