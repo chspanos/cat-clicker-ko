@@ -3,9 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Cat Clicker</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <ul id="cat-list"></ul>
+    <div id="cat-list">
+      <h3>Choose a cat:</h3>
+      <ul data-bind="foreach: catList">
+        <li data-bind="text: name, click: $parent.changeCat"></li>
+      </ul>
+    </div>
     <div id="cat" data-bind="with: currentCat">
 
         <h2 class="cat-name" data-bind="text: name"></h2>
